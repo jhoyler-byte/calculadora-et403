@@ -3,8 +3,8 @@
 Proyecto grupal: calculadora (sumar, dividir) con validación y conversor de unidades.
 
 ## Enlaces
-- Repositorio: (pegar enlace)
-- Sitio publicado (GitHub Pages): (pegar enlace)
+- Repositorio: https://github.com/jhoyler-byte/calculadora-et403
+- Sitio publicado (GitHub Pages): https://jhoyler-byte.github.io/calculadora-et403/
 
 ## Uso
 1. Calculadora: escriba dos números y pulse Sumar o Dividir.
@@ -22,7 +22,7 @@ Proyecto grupal: calculadora (sumar, dividir) con validación y conversor de uni
 ## Aportes del grupo
 | Integrante | Aporte |
 |---|---|
-| (nombre) | (aporte) |
+| JHOYLER |  Programé el conversor de unidades y publiqué el sitio |
 
 ## IA
 Herramienta: Claude (Anthropic), fecha 28/10/2026. Se usó para generar la estructura y la lógica base; el grupo realizó y verificó las pruebas.
