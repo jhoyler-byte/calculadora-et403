@@ -1,0 +1,17 @@
+/* Paleta personalizada (RGB): azul rgb(30, 64, 175) */
+:root {
+  --color-principal: rgb(30, 64, 175);
+  --color-fondo: rgb(239, 243, 255);
+  --color-texto: rgb(17, 24, 39);
+}
+body { font-family: system-ui, sans-serif; max-width: 420px; margin: 2rem auto; padding: 0 1rem;
+       background: var(--color-fondo); color: var(--color-texto); }
+h1, h2 { color: var(--color-principal); }
+section { background: #fff; border: 1px solid var(--color-principal); border-radius: 8px;
+          padding: 1rem; margin-bottom: 1.5rem; }
+label { display: block; margin-top: .8rem; font-size: 1.15rem; } /* tamaño de etiqueta cambiado */
+input, select { width: 100%; padding: .5rem; font-size: 1rem; box-sizing: border-box; }
+button { margin: 1rem .5rem 0 0; padding: .5rem 1rem; font-size: 1rem; cursor: pointer;
+         background: var(--color-principal); color: #fff; border: 0; border-radius: 6px; }
+#salida, #salidaConv { margin-top: 1rem; padding: .8rem; border: 1px solid #888;
+                       border-radius: 6px; min-height: 1.5rem; }

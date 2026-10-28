@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora y conversor · ET403 S9</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Calculadora y conversor</h1>
+
+<section id="calculadora">
+  <h2>Calculadora</h2>
+  <label for="entradaA">Primer número (A)</label>
+  <input id="entradaA" type="text" autocomplete="off">
+  <label for="entradaB">Segundo número (B)</label>
+  <input id="entradaB" type="text" autocomplete="off">
+  <button id="btnSumar">Sumar</button>
+  <button id="btnDividir">Dividir</button>
+  <div id="salida" role="status">Escriba dos números y elija una operación.</div>
+</section>
+
+<section id="conversor">
+  <h2>Conversor de unidades</h2>
+  <label for="valorConv">Valor a convertir</label>
+  <input id="valorConv" type="text" autocomplete="off">
+  <label for="tipoConv">Conversión</label>
+  <select id="tipoConv"></select>
+  <button id="btnConvertir">Convertir</button>
+  <div id="salidaConv" role="status">Escriba un valor y elija la conversión.</div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

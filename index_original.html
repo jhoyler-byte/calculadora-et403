@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora con decisiones verificables · ET403 S7</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 420px; margin: 2rem auto; padding: 0 1rem; }
+  label { display: block; margin-top: .8rem; }
+  input { width: 100%; padding: .5rem; font-size: 1rem; box-sizing: border-box; }
+  button { margin: 1rem .5rem 0 0; padding: .5rem 1rem; font-size: 1rem; }
+  #salida { margin-top: 1rem; padding: .8rem; border: 1px solid #888; border-radius: 6px; min-height: 1.5rem; }
+</style>
+</head>
+<body>
+<h1>Calculadora</h1>
+<label for="entradaA">Primer número</label>
+<input id="entradaA" type="text" autocomplete="off">
+<label for="entradaB">Segundo número</label>
+<input id="entradaB" type="text" autocomplete="off">
+<button id="btnSumar">Sumar</button>
+<button id="btnDividir">Dividir</button>
+<div id="salida" role="status">Escriba dos números y elija una operación.</div>
+
+<script>
+// ===== LÓGICA (recorrido: entrada -> validación -> operación -> salida) =====
+// VALIDACIÓN: devuelve {ok:false, mensaje} o {ok:true, a, b}
+function validar(textoA, textoB) {
+  const tA = textoA.trim();
+  const tB = textoB.trim();
+  // 1) Vacío ANTES de convertir: Number("") daría 0 y se confundiría con un cero real.
+  if (tA === "" || tB === "") {
+    return { ok: false, mensaje: "Complete las dos entradas." };
+  }
+  const a = Number(tA);
+  const b = Number(tB);
+  // 2) Después de convertir: texto no numérico (NaN) o Infinity no son válidos.
+  if (!Number.isFinite(a) || !Number.isFinite(b)) {
+    return { ok: false, mensaje: "Escriba números válidos." };
+  }
+  return { ok: true, a: a, b: b };
+}
+
+// OPERACIÓN + SALIDA: devuelve el texto que se mostrará
+function calcular(operacion, textoA, textoB) {
+  const v = validar(textoA, textoB);
+  if (!v.ok) return v.mensaje;
+  if (operacion === "sumar") {
+    return "Suma: " + (v.a + v.b);          // el cero es válido en una suma
+  }
+  if (operacion === "dividir") {
+    if (v.b === 0) {                        // divisor cero: solo se rechaza al dividir
+      return "No se puede dividir entre cero.";
+    }
+    return "División: " + (v.a / v.b);
+  }
+  return "Operación desconocida.";
+}
+// ===== FIN DE LA LÓGICA =====
+
+// ===== INTERFAZ =====
+if (typeof document !== "undefined") {
+  const entradaA = document.getElementById("entradaA");
+  const entradaB = document.getElementById("entradaB");
+  const salida = document.getElementById("salida");
+  document.getElementById("btnSumar").addEventListener("click", function () {
+    salida.textContent = calcular("sumar", entradaA.value, entradaB.value);
+  });
+  document.getElementById("btnDividir").addEventListener("click", function () {
+    salida.textContent = calcular("dividir", entradaA.value, entradaB.value);
+  });
+}
+</script>
+</body>
+</html>
